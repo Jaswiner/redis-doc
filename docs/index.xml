@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docs on Redis Doc</title>
+    <link>https://jaswine.com/docs/redis/docs/</link>
+    <description>Recent content in Docs on Redis Doc</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://jaswine.com/docs/redis/docs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/install/base/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/install/base/</guid>
+      <description> Redis安装 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/install/docker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/install/docker/</guid>
+      <description> 使用Docker安装Redis </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/install/yum/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/install/yum/</guid>
+      <description> 使用YUM安装Redis // 1.查询是否有可以安装的包 yum list redis // 2.没有的话安装仓库 yum install epel-release // 3.安装Redis yum install redis  </description>
+    </item>
+    
+  </channel>
+</rss>
