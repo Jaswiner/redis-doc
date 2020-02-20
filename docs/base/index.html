@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  
+    
+    Base
+  
+ | Redis Doc</title>
+
+
+
+<link rel="stylesheet" href="/docs/redis/book.min.b7d5ee4f671b06dde5fd61ab409a54048ba7759e99fed39ac32a7be45d4d92cd.css">
+
+
+<link rel="icon" href="/docs/redis/favicon.png" type="image/x-icon">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav>
+<h2 class="book-brand">
+  <a href="https://jaswine.com/docs/redis">Redis Doc</a>
+</h2>
+
+
+
+    
+  
+  
+  
+
+  <style>
+  nav ul a[href$="\2f docs\2fredis\2f docs\2f base\2f "] {
+      color: #004ed0;
+  }
+  </style>
+
+<ul>
+<li><strong><em><a href="/docs/redis/docs/base/">Redis概述</a></em></strong></li>
+<li><strong><em>安装</em></strong>
+
+<ul>
+<li><strong>单例</strong>
+
+<ul>
+<li><a href="/docs/redis/docs/install/yum/">YUM安装</a></li>
+<li><a href="/docs/redis/docs/install/docker/">Docker安装</a></li>
+</ul></li>
+<li><strong>集群 &amp; 分布式</strong>
+
+<ul>
+<li><a href="/docs/redis/docs/install/docker/">集群</a></li>
+<li><a href="#">使用Redis实现分布式缓存系统</a></li>
+</ul></li>
+</ul></li>
+<li><strong><em>配置</em></strong>
+
+<ul>
+<li><a href="#">键的过期时间</a></li>
+<li><a href="#">数据淘汰策略</a></li>
+<li><a href="#">持久化</a></li>
+</ul></li>
+<li><strong><em>基础</em></strong>
+
+<ul>
+<li><a href="/docs/redis/docs/common/ds/">Redis数据类型</a></li>
+</ul></li>
+<li><strong><em>应用</em></strong>
+
+<ul>
+<li><a href="/docs/redis/docs/app/springboot/">SpringBoot连接Redis</a></li>
+</ul></li>
+<li><strong><em>使用场景</em></strong>
+
+<ul>
+<li><a href="#">数据库热点数据缓存</a></li>
+</ul></li>
+</ul>
+
+
+
+
+
+</nav>
+
+
+
+    </aside>
+
+    <div class="book-page">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/docs/redis/svg/menu.svg" alt="Menu" />
+  </label>
+  <strong>
+  
+    
+    Base
+  
+</strong>
+</header>
+
+      
+<article class="markdown">
+
+<h1 id="redis概述">Redis概述</h1>
+
+<h2 id="redis版本及特性">Redis版本及特性</h2>
+
+<ul>
+<li><p><strong>Redis2.6</strong>[2012]</p>
+
+<ul>
+<li>服务端支持Lua脚本</li>
+<li>去掉虚拟内存相关功能</li>
+<li>放开客户端连接数的硬编码限制</li>
+<li>键的过期时间支持到毫秒级</li>
+<li>从节点支持只读功能</li>
+<li>两个新的位图命令:bitcount &amp; bitop</li>
+<li>增强了redis-benchmark的功能:支持定制化压测 &amp; CSV输出等</li>
+<li>基于浮点数自增命令:incrbyfloat &amp; hincrbyfloat</li>
+<li>redis-cli可以使用&ndash;eval参数实现Lua脚本执行</li>
+<li>shutdown命令增强</li>
+<li>去掉了集群代码(留在3.0中更新)</li>
+<li>sort命令优化</li>
+</ul></li>
+
+<li><p><strong>Redis2.8</strong>[2013]</p>
+
+<ul>
+<li>添加部分主从复制的功能</li>
+<li>尝试支持IPV6</li>
+<li>可以通过config set命令设置maxclients</li>
+<li>可以用bind命令绑定多个IP地址</li>
+<li>设置了明显的进程名，方便使用ps命令查看系统进程</li>
+<li>config rewrite命令可以将config set持久化到Redis配置文件中</li>
+<li>发布订阅添加了pubsub<br /></li>
+</ul></li>
+
+<li><p><strong>Redis3.0</strong>[2015]</p>
+
+<ul>
+<li>Redis Cluster：Redis的官方分布式实现。</li>
+<li>全新的embedded string对象编码结果，优化小对象内存访问，在特定的工作负载下载速度大幅提升。</li>
+<li>LRU算法大幅提升。</li>
+<li>migrate连接缓存，大幅提升键迁移的速度。</li>
+<li>migrate命令两个新的参数copy和replace。</li>
+<li>新的client pause命令，在指定时间内停止处理客户端请求。</li>
+<li>bitcount命令性能提升。</li>
+<li>cinfig set设置maxmemory时候可以设置不同的单位（之前只能是字节）。</li>
+<li>Redis日志小做调整：日志中会反应当前实例的角色（master或者slave）。</li>
+<li>incr命令性能提升。</li>
+</ul></li>
+
+<li><p><strong>Redis3.2</strong>[2016]</p>
+
+<ul>
+<li>添加GEO相关功能。</li>
+<li>SDS在速度和节省空间上都做了优化。</li>
+<li>支持用upstart或者systemd管理Redis进程。</li>
+<li>新的List编码类型：quicklist。</li>
+<li>从节点读取过期数据保证一致性。</li>
+<li>添加了hstrlen命令。</li>
+<li>增强了debug命令，支持了更多的参数。</li>
+<li>Lua脚本功能增强。</li>
+<li>添加了Lua Debugger。</li>
+<li>config set 支持更多的配置参数。</li>
+<li>优化了Redis崩溃后的相关报告。</li>
+<li>新的RDB格式，但是仍然兼容旧的RDB。</li>
+<li>加速RDB的加载速度。</li>
+<li>spop命令支持个数参数。</li>
+<li>cluster nodes命令得到加速。</li>
+<li>Jemalloc更新到4.0.3版本。</li>
+</ul></li>
+
+<li><p><strong>Redis4.0</strong>[2017]</p>
+
+<ul>
+<li>提供了模块系统，方便第三方开发者拓展Redis的功能。</li>
+<li>PSYNC2.0：优化了之前版本中，主从节点切换必然引起全量复制的问题。</li>
+<li>提供了新的缓存剔除算法：LFU（Last Frequently Used），并对已有算法进行了优化。</li>
+<li>提供了非阻塞del和flushall/flushdb功能，有效解决删除了bigkey可能造成的Redis阻塞。</li>
+<li>提供了memory命令，实现对内存更为全面的监控统计。</li>
+<li>提供了交互数据库功能，实现Redis内部数据库的数据置换。</li>
+<li>提供了RDB-AOF混合持久化格式，充分利用了AOF和RDB各自优势。</li>
+<li>Redis Cluster 兼容NAT和Docker。</li>
+</ul></li>
+
+<li><p><strong>Redis5.0</strong>[2018]</p>
+
+<ul>
+<li>新的Stream数据类型。</li>
+<li>新的Redis模块API：Timers and Cluster API</li>
+<li>RDB现在存储LFU和LRU信息。</li>
+<li>集群管理器从Ruby（redis-trib.rb）移植到C代码。可以在redis-cli中。查看<code>redis-cli —cluster help</code>了解更多信息。</li>
+<li>新sorted set命令：ZPOPMIN / MAX和阻塞变量。</li>
+<li>主动碎片整理V2。</li>
+<li>增强HyperLogLog实现。</li>
+<li>更好的内存统计报告。</li>
+<li>许多带有子命令的命令现在都有一个HELP子命令。</li>
+<li>客户经常连接和断开连接时性能更好。</li>
+<li>错误修复和改进。</li>
+<li>Jemalloc升级到5.1版</li>
+</ul></li>
+</ul>
+</article>
+
+      
+
+      
+    </div>
+
+    
+  
+
+  <aside class="book-toc level-3 fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#redis概述">Redis概述</a>
+<ul>
+<li><a href="#redis版本及特性">Redis版本及特性</a></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+  
+  
+  
+</body>
+
+</html>

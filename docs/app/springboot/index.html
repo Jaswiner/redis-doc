@@ -12,7 +12,7 @@
 <title>
   
     
-    Base
+    Springboot
   
  | Redis Doc</title>
 
@@ -50,7 +50,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   <style>
-  nav ul a[href$="\2f docs\2fredis\2f docs\2finstall\2f base\2f "] {
+  nav ul a[href$="\2f docs\2fredis\2f docs\2f app\2fspringboot\2f "] {
       color: #004ed0;
   }
   </style>
@@ -115,7 +115,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>
   
     
-    Base
+    Springboot
   
 </strong>
 </header>
@@ -123,7 +123,66 @@ https://github.com/alex-shpak/hugo-book
       
 <article class="markdown">
 
-<h1 id="redis安装">Redis安装</h1>
+<h1 id="springboot连接redis">SpringBoot连接Redis</h1>
+
+<hr />
+
+<p><strong>@Version:</strong>2.1.5.RELEASE</p>
+
+<p><strong>@SpringBoot使用Doc:</strong>🔗<a href="https://jaswine.com/docs/boot/">SpringBoot Doc @ Jaswine</a></p>
+
+<hr />
+
+<h2 id="1-导入依赖包">1.导入依赖包</h2>
+
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-redis&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h2 id="2-配置-yaml">2.配置(yaml)</h2>
+
+<pre><code class="language-yaml">spring:
+  redis:
+    # 基础配置
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
+    # 连接池配置
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+</code></pre>
+
+<h2 id="3-使用">3.使用</h2>
+
+<pre><code class="language-java">@RunWith(SpringJUnit4ClassRunner.class)
+@SpringApplicationConfiguration(Application.class)
+public class ApplicationTests {
+
+	@Autowired
+	private StringRedisTemplate stringRedisTemplate;
+
+	@Test
+	public void test() throws Exception {
+
+		// 保存字符串
+		stringRedisTemplate.opsForValue().set(&quot;aaa&quot;, &quot;111&quot;);
+		Assert.assertEquals(&quot;111&quot;, stringRedisTemplate.opsForValue().get(&quot;aaa&quot;));
+
+    }
+
+}
+</code></pre>
+
+<h2 id="附1-配置持久化">附1:配置持久化</h2>
+
+<h2 id="附2-不同数据类型的操作函数">附2:不同数据类型的操作函数</h2>
 </article>
 
       
@@ -137,7 +196,14 @@ https://github.com/alex-shpak/hugo-book
   <aside class="book-toc level-3 fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#redis安装">Redis安装</a></li>
+<li><a href="#springboot连接redis">SpringBoot连接Redis</a>
+<ul>
+<li><a href="#1-导入依赖包">1.导入依赖包</a></li>
+<li><a href="#2-配置-yaml">2.配置(yaml)</a></li>
+<li><a href="#3-使用">3.使用</a></li>
+<li><a href="#附1-配置持久化">附1:配置持久化</a></li>
+<li><a href="#附2-不同数据类型的操作函数">附2:不同数据类型的操作函数</a></li>
+</ul></li>
 </ul>
 </nav>
   </aside>
