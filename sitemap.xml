@@ -3,17 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://jaswine.com/docs/redis/docs/app/springboot/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://jaswine.com/docs/redis/docs/base/</loc>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jaswine.com/docs/redis/docs/common/ds/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaswine.com/docs/redis/docs/common/spec/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaswine.com/docs/redis/docs/common/springboot/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaswine.com/docs/redis/docs/config/key_expired/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaswine.com/docs/redis/docs/config/persistence/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaswine.com/docs/redis/docs/config/value_expired/</loc>
     <priority>0</priority>
   </url>
   
@@ -29,6 +49,16 @@
   
   <url>
     <loc>https://jaswine.com/docs/redis/docs/install/yum/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaswine.com/docs/redis/docs/scenes/db/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaswine.com/docs/redis/docs/scenes/lock/</loc>
     <priority>0</priority>
   </url>
   

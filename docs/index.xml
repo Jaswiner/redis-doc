@@ -12,17 +12,6 @@
     
     <item>
       <title></title>
-      <link>https://jaswine.com/docs/redis/docs/app/springboot/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://jaswine.com/docs/redis/docs/app/springboot/</guid>
-      <description> SpringBoot连接Redis @Version:2.1.5.RELEASE
-@SpringBoot使用Doc:🔗SpringBoot Doc @ Jaswine
-1.导入依赖包 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-redis&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt;  2.配置(yaml) spring: redis: # 基础配置 database: 0 host: 127.0.0.1 port: 6379 password: 123456 # 连接池配置 jedis: pool: max-active: 8 max-wait: -1ms max-idle: 8 min-idle: 0  3.使用 @RunWith(SpringJUnit4ClassRunner.class) @SpringApplicationConfiguration(Application.class) public class ApplicationTests { @Autowired private StringRedisTemplate stringRedisTemplate; @Test public void test() throws Exception { // 保存字符串 stringRedisTemplate.opsForValue().set(&amp;quot;aaa&amp;quot;, &amp;quot;111&amp;quot;); Assert.assertEquals(&amp;quot;111&amp;quot;, stringRedisTemplate.opsForValue().get(&amp;quot;aaa&amp;quot;)); } }  附1:配置持久化 附2:不同数据类型的操作函数 </description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>https://jaswine.com/docs/redis/docs/base/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -43,6 +32,53 @@
       <guid>https://jaswine.com/docs/redis/docs/common/ds/</guid>
       <description> Redis中的数据类型 数据类型及其对应的数据结构 Redis中有五种数据类型:
    数据类型 value底层数据结构 特点     STRING 字符串    LIST 链表    HASH hash表    SET     ZSET      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/common/spec/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/common/spec/</guid>
+      <description> Key命名规范 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/common/springboot/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/common/springboot/</guid>
+      <description> SpringBoot连接Redis @Version:2.1.5.RELEASE
+@SpringBoot使用Doc:🔗SpringBoot Doc @ Jaswine
+1.导入依赖包 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-redis&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt;  2.配置(yaml) spring: redis: # 基础配置 database: 0 host: 127.0.0.1 port: 6379 password: 123456 # 连接池配置 jedis: pool: max-active: 8 max-wait: -1ms max-idle: 8 min-idle: 0  3.使用 @RunWith(SpringJUnit4ClassRunner.class) @SpringApplicationConfiguration(Application.class) public class ApplicationTests { @Autowired private StringRedisTemplate stringRedisTemplate; @Test public void test() throws Exception { // 保存字符串 stringRedisTemplate.opsForValue().set(&amp;quot;aaa&amp;quot;, &amp;quot;111&amp;quot;); Assert.assertEquals(&amp;quot;111&amp;quot;, stringRedisTemplate.opsForValue().get(&amp;quot;aaa&amp;quot;)); } }  附1:配置持久化 附2:不同数据类型的操作函数 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/config/key_expired/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/config/key_expired/</guid>
+      <description> Key过期时间配置 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/config/persistence/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/config/persistence/</guid>
+      <description> 数据持久化 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/config/value_expired/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/config/value_expired/</guid>
+      <description> value淘汰策略 </description>
     </item>
     
     <item>
@@ -70,6 +106,24 @@
       
       <guid>https://jaswine.com/docs/redis/docs/install/yum/</guid>
       <description> 使用YUM安装Redis // 1.查询是否有可以安装的包 yum list redis // 2.没有的话安装仓库 yum install epel-release // 3.安装Redis yum install redis  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/scenes/db/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/scenes/db/</guid>
+      <description> 缓存数据库热点数据 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/scenes/lock/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/scenes/lock/</guid>
+      <description> 使用Redis实现分布式锁 </description>
     </item>
     
   </channel>
