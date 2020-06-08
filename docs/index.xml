@@ -12,20 +12,6 @@
     
     <item>
       <title></title>
-      <link>https://jaswine.com/docs/redis/docs/base/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://jaswine.com/docs/redis/docs/base/</guid>
-      <description>Redis概述 Redis版本及特性  Redis2.6[2012]
- 服务端支持Lua脚本 去掉虚拟内存相关功能 放开客户端连接数的硬编码限制 键的过期时间支持到毫秒级 从节点支持只读功能 两个新的位图命令:bitcount &amp;amp; bitop 增强了redis-benchmark的功能:支持定制化压测 &amp;amp; CSV输出等 基于浮点数自增命令:incrbyfloat &amp;amp; hincrbyfloat redis-cli可以使用&amp;ndash;eval参数实现Lua脚本执行 shutdown命令增强 去掉了集群代码(留在3.0中更新) sort命令优化  Redis2.8[2013]
- 添加部分主从复制的功能 尝试支持IPV6 可以通过config set命令设置maxclients 可以用bind命令绑定多个IP地址 设置了明显的进程名，方便使用ps命令查看系统进程 config rewrite命令可以将config set持久化到Redis配置文件中 发布订阅添加了pubsub
-  Redis3.0[2015]
- Redis Cluster：Redis的官方分布式实现。 全新的embedded string对象编码结果，优化小对象内存访问，在特定的工作负载下载速度大幅提升。 LRU算法大幅提升。 migrate连接缓存，大幅提升键迁移的速度。 migrate命令两个新的参数copy和replace。 新的client pause命令，在指定时间内停止处理客户端请求。 bitcount命令性能提升。 cinfig set设置maxmemory时候可以设置不同的单位（之前只能是字节）。 Redis日志小做调整：日志中会反应当前实例的角色（master或者slave）。 incr命令性能提升。  Redis3.2[2016]
- 添加GEO相关功能。 SDS在速度和节省空间上都做了优化。 支持用upstart或者systemd管理Redis进程。 新的List编码类型：quicklist。 从节点读取过期数据保证一致性。 添加了hstrlen命令。 增强了debug命令，支持了更多的参数。 Lua脚本功能增强。 添加了Lua Debugger。 config set 支持更多的配置参数。 优化了Redis崩溃后的相关报告。 新的RDB格式，但是仍然兼容旧的RDB。 加速RDB的加载速度。 spop命令支持个数参数。 cluster nodes命令得到加速。 Jemalloc更新到4.</description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>https://jaswine.com/docs/redis/docs/common/ds/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -56,11 +42,22 @@
     
     <item>
       <title></title>
+      <link>https://jaswine.com/docs/redis/docs/config/base/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/config/base/</guid>
+      <description> Redis基础配置 配置Redis的基础信息:
+ 端口 密码 绑定主机 守护进程模式运行 pid地址  Redis配置文件地址  yum安装的地址 /etc/redis.conf  修改端口 port 6379  设置密码 requirepass xxxx  绑定主机 bind 0.0.0.0  守护进程模式运行 daemonize yes  pid地址 pidfile /var/run/redis.pid  </description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://jaswine.com/docs/redis/docs/config/key_expired/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://jaswine.com/docs/redis/docs/config/key_expired/</guid>
-      <description> Key过期时间配置 </description>
+      <description>Key过期时间配置 key的过期时间配置使用Redis的命令行：
+EXPIRE [key_name] 30  ps:默认时间单位为秒</description>
     </item>
     
     <item>
@@ -78,16 +75,56 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://jaswine.com/docs/redis/docs/config/value_expired/</guid>
-      <description> value淘汰策略 </description>
+      <description> 内存淘汰策略 当Redis中内存满的情况下，要对一些key进行淘汰
+配置淘汰策略 修改Redis配置文件
+maxmemory 10000000 配置内存阈值(单位为byte) maxmemory-policy noeviction 配置淘汰策略  淘汰策略说明  noeviction(默认策略)：当内存不足以容纳新写入数据时，新写入操作会报错。 allkeys-lru：当内存不足以容纳新写入数据时，在键空间中，移除最近最少使用的key。 allkeys-random：当内存不足以容纳新写入数据时，在键空间中，随机移除某个key。 volatile-lru：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，移除最近最少使用的key。 volatile-random：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，随机移除某个key。 volatile-ttl：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，有更早过期时间的key优先移除。  </description>
     </item>
     
     <item>
       <title></title>
-      <link>https://jaswine.com/docs/redis/docs/install/base/</link>
+      <link>https://jaswine.com/docs/redis/docs/data_type/hash/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jaswine.com/docs/redis/docs/install/base/</guid>
-      <description> Redis安装 </description>
+      <guid>https://jaswine.com/docs/redis/docs/data_type/hash/</guid>
+      <description> Redis中Hash数据类型及其操作 使用场景  1.存储对象  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/data_type/list/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/data_type/list/</guid>
+      <description> Redis中String数据类型机器操作 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/data_type/set/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/data_type/set/</guid>
+      <description> Redis中String数据类型机器操作 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/data_type/string/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/data_type/string/</guid>
+      <description> Redis中String数据类型及其操作 常用操作 使用场景  1.保存单个数据&amp;amp;Json字符串
+ 2.计数器
+  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/data_type/zset/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/data_type/zset/</guid>
+      <description> Redis中String数据类型机器操作 </description>
     </item>
     
     <item>
@@ -96,7 +133,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://jaswine.com/docs/redis/docs/install/docker/</guid>
-      <description> 使用Docker安装Redis </description>
+      <description> 使用Docker安装Redis # 1.拉取镜像 docker pull  </description>
     </item>
     
     <item>
@@ -105,7 +142,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://jaswine.com/docs/redis/docs/install/yum/</guid>
-      <description> 使用YUM安装Redis // 1.查询是否有可以安装的包 yum list redis // 2.没有的话安装仓库 yum install epel-release // 3.安装Redis yum install redis  </description>
+      <description> 使用YUM安装Redis // 1.查询是否有可以安装的包 yum list redis // 2.没有的话安装仓库 yum install epel-release // 3.安装Redis yum install redis // 4.启动Redis systemctl start redis  </description>
     </item>
     
     <item>

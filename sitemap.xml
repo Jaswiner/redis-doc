@@ -3,11 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://jaswine.com/docs/redis/docs/base/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://jaswine.com/docs/redis/docs/common/ds/</loc>
     <priority>0</priority>
   </url>
@@ -19,6 +14,11 @@
   
   <url>
     <loc>https://jaswine.com/docs/redis/docs/common/springboot/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaswine.com/docs/redis/docs/config/base/</loc>
     <priority>0</priority>
   </url>
   
@@ -38,7 +38,27 @@
   </url>
   
   <url>
-    <loc>https://jaswine.com/docs/redis/docs/install/base/</loc>
+    <loc>https://jaswine.com/docs/redis/docs/data_type/hash/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaswine.com/docs/redis/docs/data_type/list/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaswine.com/docs/redis/docs/data_type/set/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaswine.com/docs/redis/docs/data_type/string/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaswine.com/docs/redis/docs/data_type/zset/</loc>
     <priority>0</priority>
   </url>
   

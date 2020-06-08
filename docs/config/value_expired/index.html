@@ -56,42 +56,61 @@ https://github.com/alex-shpak/hugo-book
   </style>
 
 <ul>
-<li><strong><em><a href="/docs/redis/docs/base/">Redis概述</a></em></strong></li>
-<li><strong><em>安装</em></strong>
+<li><strong><em><span style="color:#FF69B4">运维</span></em></strong>
 
 <ul>
-<li><strong>单例</strong>
+<li><strong>安装</strong>
 
 <ul>
-<li><a href="/docs/redis/docs/install/yum/">YUM安装</a></li>
-<li><a href="/docs/redis/docs/install/docker/">Docker安装</a></li>
+<li><a href="/docs/redis/docs/install/yum/">YUM安装Redis</a></li>
+<li><a href="/docs/redis/docs/install/docker/">Docker安装Redis</a></li>
+<li><a href="/docs/redis/docs/install/docker/">编译安装Redis</a></li>
+<li><a href="/docs/redis/docs/install/docker/">Redis集群</a><br /></li>
 </ul></li>
-<li><strong>集群 &amp; 分布式</strong>
+<li><strong>配置</strong>
 
 <ul>
-<li><a href="/docs/redis/docs/install/docker/">集群</a></li>
-<li><a href="#">Redis实现分布式缓存系统</a></li>
-</ul></li>
-</ul></li>
-<li><strong><em>配置</em></strong>
-
-<ul>
-<li><a href="/docs/redis/docs/config/key_expired/">键的过期时间</a></li>
-<li><a href="/docs/redis/docs/config/value_expired/">数据淘汰策略</a></li>
+<li><a href="/docs/redis/docs/config/base/">Redis基础配置</a></li>
+<li><a href="/docs/redis/docs/config/key_expired/">Key的过期时间</a></li>
+<li><a href="/docs/redis/docs/config/value_expired/">内存淘汰策略</a></li>
 <li><a href="/docs/redis/docs/config/persistence/">持久化</a></li>
 </ul></li>
-<li><strong><em>基础</em></strong>
+</ul></li>
+<li><strong><em><span style="color:#FF69B4">特性</span></em></strong>
 
 <ul>
+<li><strong>基础特性</strong>
+
+<ul>
+<li><a href="/docs/redis/docs/data_type/string/">Redis数据类型String&amp;操作</a></li>
+<li><a href="/docs/redis/docs/data_type/hash/">Redis数据类型Hash&amp;操作</a></li>
+<li><a href="/docs/redis/docs/data_type/list/">Redis数据类型List&amp;操作</a></li>
+<li><a href="/docs/redis/docs/data_type/set/">Redis数据类型Set&amp;操作</a></li>
+<li><a href="/docs/redis/docs/data_type/zset/">Redis数据类型Zset&amp;操作</a><br /></li>
+</ul></li>
+<li><strong>高级特性</strong>
+
+<ul>
+<li><a href="/docs/redis/docs/common/ds/">Redis事务</a></li>
+<li><a href="/docs/redis/docs/common/ds/">Redis发布订阅</a></li>
 <li><a href="/docs/redis/docs/common/ds/">Redis数据类型</a></li>
+</ul></li>
+</ul></li>
+<li><strong><em><span style="color:#FF69B4">使用场景</span></em></strong>
+
+<ul>
 <li><a href="/docs/redis/docs/common/spec/">key命名规范</a></li>
 <li><a href="/docs/redis/docs/common/springboot/">SpringBoot连接Redis</a></li>
-</ul></li>
-<li><strong><em>使用场景</em></strong>
-
-<ul>
 <li><a href="/docs/redis/docs/scenes/db/">数据库热点数据缓存</a></li>
 <li><a href="/docs/redis/docs/scenes/lock/">分布式锁</a></li>
+</ul></li>
+<li><strong><em><span style="color:#FF69B4">疑难杂症</span></em></strong>
+
+<ul>
+<li><a href="#">Redis实现分布式缓存系统</a></li>
+<li><a href="/docs/redis/docs/scenes/lock/">缓存击穿</a></li>
+<li><a href="/docs/redis/docs/scenes/lock/">缓存雪崩</a></li>
+<li><a href="/docs/redis/docs/scenes/lock/">热点Key</a></li>
 </ul></li>
 </ul>
 
@@ -121,7 +140,28 @@ https://github.com/alex-shpak/hugo-book
       
 <article class="markdown">
 
-<h1 id="value淘汰策略">value淘汰策略</h1>
+<h1 id="内存淘汰策略">内存淘汰策略</h1>
+
+<p>当<code>Redis</code>中内存满的情况下，要对一些<code>key</code>进行淘汰</p>
+
+<h2 id="配置淘汰策略">配置淘汰策略</h2>
+
+<p>修改<code>Redis</code>配置文件</p>
+
+<pre><code>maxmemory 10000000 配置内存阈值(单位为byte)
+maxmemory-policy noeviction 配置淘汰策略
+</code></pre>
+
+<h2 id="淘汰策略说明">淘汰策略说明</h2>
+
+<ul>
+<li><strong>noeviction(默认策略)</strong>：当内存不足以容纳新写入数据时，新写入操作会报错。</li>
+<li><strong>allkeys-lru</strong>：当内存不足以容纳新写入数据时，在键空间中，移除最近最少使用的key。</li>
+<li><strong>allkeys-random</strong>：当内存不足以容纳新写入数据时，在键空间中，随机移除某个key。</li>
+<li><strong>volatile-lru</strong>：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，移除最近最少使用的key。</li>
+<li><strong>volatile-random</strong>：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，随机移除某个key。</li>
+<li><strong>volatile-ttl</strong>：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，有更早过期时间的key优先移除。</li>
+</ul>
 </article>
 
       
@@ -135,7 +175,11 @@ https://github.com/alex-shpak/hugo-book
   <aside class="book-toc level-3 fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#value淘汰策略">value淘汰策略</a></li>
+<li><a href="#内存淘汰策略">内存淘汰策略</a>
+<ul>
+<li><a href="#配置淘汰策略">配置淘汰策略</a></li>
+<li><a href="#淘汰策略说明">淘汰策略说明</a></li>
+</ul></li>
 </ul>
 </nav>
   </aside>
