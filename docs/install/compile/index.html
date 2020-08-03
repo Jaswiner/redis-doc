@@ -12,7 +12,7 @@
 <title>
   
     
-    Set
+    Compile
   
  | Redis Doc</title>
 
@@ -50,7 +50,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   <style>
-  nav ul a[href$="\2f docs\2fredis\2f docs\2f data_type\2fset\2f "] {
+  nav ul a[href$="\2f docs\2fredis\2f docs\2finstall\2f compile\2f "] {
       color: #004ed0;
   }
   </style>
@@ -136,7 +136,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>
   
     
-    Set
+    Compile
   
 </strong>
 </header>
@@ -144,7 +144,56 @@ https://github.com/alex-shpak/hugo-book
       
 <article class="markdown">
 
-<h1 id="redis中string数据类型机器操作">Redis中String数据类型机器操作</h1>
+<h1 id="编译安装redis">编译安装Redis</h1>
+
+<blockquote>
+<p>Redis版本:<strong>5.0.8</strong></p>
+</blockquote>
+
+<!-- TOC -->
+
+<ul>
+<li><a href="#编译安装redis">编译安装Redis</a>
+
+<ul>
+<li><a href="#下载软件包">下载软件包</a></li>
+<li><a href="#解压">解压</a></li>
+<li><a href="#安装gcc如果没有安装的话">安装gcc(如果没有安装的话)</a></li>
+<li><a href="#编译">编译</a></li>
+<li><a href="#运行">运行</a></li>
+</ul></li>
+</ul>
+
+<!-- /TOC -->
+
+<h2 id="下载软件包">下载软件包</h2>
+
+<p>在Redis官方网站就可以下载，很小</p>
+
+<h2 id="解压">解压</h2>
+
+<pre><code class="language-shell">tar -xvf redis-xxxx.tar
+</code></pre>
+
+<h2 id="安装gcc-如果没有安装的话">安装gcc(如果没有安装的话)</h2>
+
+<pre><code class="language-shell">yum install -y gcc
+</code></pre>
+
+<h2 id="编译">编译</h2>
+
+<pre><code class="language-shell">## 进入到目录
+cd redis-xxx
+
+## 编译
+make
+</code></pre>
+
+<h2 id="运行">运行</h2>
+
+<pre><code class="language-SHELL">
+src/redis-server redis.conf
+</code></pre>
 </article>
 
       
@@ -158,7 +207,14 @@ https://github.com/alex-shpak/hugo-book
   <aside class="book-toc level-3 fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#redis中string数据类型机器操作">Redis中String数据类型机器操作</a></li>
+<li><a href="#编译安装redis">编译安装Redis</a>
+<ul>
+<li><a href="#下载软件包">下载软件包</a></li>
+<li><a href="#解压">解压</a></li>
+<li><a href="#安装gcc-如果没有安装的话">安装gcc(如果没有安装的话)</a></li>
+<li><a href="#编译">编译</a></li>
+<li><a href="#运行">运行</a></li>
+</ul></li>
 </ul>
 </nav>
   </aside>

@@ -12,7 +12,7 @@
 <title>
   
     
-    Set
+    Penetration
   
  | Redis Doc</title>
 
@@ -50,7 +50,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   <style>
-  nav ul a[href$="\2f docs\2fredis\2f docs\2f data_type\2fset\2f "] {
+  nav ul a[href$="\2f docs\2fredis\2f docs\2fproblems\2fpenetration\2f "] {
       color: #004ed0;
   }
   </style>
@@ -136,7 +136,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>
   
     
-    Set
+    Penetration
   
 </strong>
 </header>
@@ -144,7 +144,35 @@ https://github.com/alex-shpak/hugo-book
       
 <article class="markdown">
 
-<h1 id="redis中string数据类型机器操作">Redis中String数据类型机器操作</h1>
+<h1 id="缓存穿透">缓存穿透</h1>
+
+<!-- TOC -->
+
+<ul>
+<li><a href="#缓存穿透">缓存穿透</a>
+
+<ul>
+<li><a href="#什么是缓存穿透">什么是缓存穿透</a></li>
+<li><a href="#解决方案">解决方案</a></li>
+<li><a href="#实现">实现</a></li>
+</ul></li>
+</ul>
+
+<!-- /TOC -->
+
+<hr />
+
+<h2 id="什么是缓存穿透">什么是缓存穿透</h2>
+
+<p>当在缓存查询一个不存在的<code>key</code>时候，就会去存储层(数据库)中查询，如何恶意去查询这个<code>key</code>的话，就会频繁的去查询数据库，这样就失去了缓存的意义</p>
+
+<h2 id="解决方案">解决方案</h2>
+
+<ul>
+<li><strong>布隆过滤器</strong></li>
+</ul>
+
+<h2 id="实现">实现</h2>
 </article>
 
       
@@ -158,7 +186,12 @@ https://github.com/alex-shpak/hugo-book
   <aside class="book-toc level-3 fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#redis中string数据类型机器操作">Redis中String数据类型机器操作</a></li>
+<li><a href="#缓存穿透">缓存穿透</a>
+<ul>
+<li><a href="#什么是缓存穿透">什么是缓存穿透</a></li>
+<li><a href="#解决方案">解决方案</a></li>
+<li><a href="#实现">实现</a></li>
+</ul></li>
 </ul>
 </nav>
   </aside>

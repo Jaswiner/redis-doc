@@ -8,16 +8,6 @@
   </url>
   
   <url>
-    <loc>https://jaswine.com/docs/redis/docs/common/spec/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jaswine.com/docs/redis/docs/common/springboot/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://jaswine.com/docs/redis/docs/config/base/</loc>
     <priority>0</priority>
   </url>
@@ -63,7 +53,32 @@
   </url>
   
   <url>
+    <loc>https://jaswine.com/docs/redis/docs/feature/ps/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaswine.com/docs/redis/docs/feature/trans/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaswine.com/docs/redis/docs/install/cluster/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaswine.com/docs/redis/docs/install/compile/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jaswine.com/docs/redis/docs/install/docker/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaswine.com/docs/redis/docs/install/sentinel/</loc>
     <priority>0</priority>
   </url>
   
@@ -73,12 +88,82 @@
   </url>
   
   <url>
-    <loc>https://jaswine.com/docs/redis/docs/scenes/db/</loc>
+    <loc>https://jaswine.com/docs/redis/docs/problems/avalanche/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaswine.com/docs/redis/docs/problems/breakdown/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaswine.com/docs/redis/docs/problems/hotkey/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaswine.com/docs/redis/docs/problems/penetration/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaswine.com/docs/redis/docs/release/2.6/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaswine.com/docs/redis/docs/release/2.8/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaswine.com/docs/redis/docs/release/3.0/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaswine.com/docs/redis/docs/release/3.2/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaswine.com/docs/redis/docs/release/4.0/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaswine.com/docs/redis/docs/release/5.0/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaswine.com/docs/redis/docs/release/6.0/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaswine.com/docs/redis/docs/scenes/cache/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaswine.com/docs/redis/docs/scenes/distributed_cache/</loc>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jaswine.com/docs/redis/docs/scenes/lock/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaswine.com/docs/redis/docs/scenes/spec/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jaswine.com/docs/redis/docs/scenes/springboot/</loc>
     <priority>0</priority>
   </url>
   

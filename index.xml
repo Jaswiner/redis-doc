@@ -22,26 +22,6 @@
     
     <item>
       <title></title>
-      <link>https://jaswine.com/docs/redis/docs/common/spec/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://jaswine.com/docs/redis/docs/common/spec/</guid>
-      <description> Key命名规范 </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://jaswine.com/docs/redis/docs/common/springboot/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://jaswine.com/docs/redis/docs/common/springboot/</guid>
-      <description> SpringBoot连接Redis @Version:2.1.5.RELEASE
-@SpringBoot使用Doc:🔗SpringBoot Doc @ Jaswine
-1.导入依赖包 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-redis&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt;  2.配置(yaml) spring: redis: # 基础配置 database: 0 host: 127.0.0.1 port: 6379 password: 123456 # 连接池配置 jedis: pool: max-active: 8 max-wait: -1ms max-idle: 8 min-idle: 0  3.使用 @RunWith(SpringJUnit4ClassRunner.class) @SpringApplicationConfiguration(Application.class) public class ApplicationTests { @Autowired private StringRedisTemplate stringRedisTemplate; @Test public void test() throws Exception { // 保存字符串 stringRedisTemplate.opsForValue().set(&amp;quot;aaa&amp;quot;, &amp;quot;111&amp;quot;); Assert.assertEquals(&amp;quot;111&amp;quot;, stringRedisTemplate.opsForValue().get(&amp;quot;aaa&amp;quot;)); } }  附1:配置持久化 附2:不同数据类型的操作函数 </description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>https://jaswine.com/docs/redis/docs/config/base/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -129,11 +109,62 @@ maxmemory 10000000 配置内存阈值(单位为byte) maxmemory-policy noeviction
     
     <item>
       <title></title>
+      <link>https://jaswine.com/docs/redis/docs/feature/ps/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/feature/ps/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/feature/trans/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/feature/trans/</guid>
+      <description> Redis事务 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/install/cluster/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/install/cluster/</guid>
+      <description>Redis集群  使用版本:Redis 5.0.8
+  Redis集群  创建节点文件夹 修改配置文件 开启服务 创建集群 集群节点扩容 集群节点删除   创建节点文件夹 在合适的地方创建节点的文件夹又来放置
+ 配置文件 持久化文件  修改配置文件 开启集群模式
+daemonize yes port 7000 cluster-enabled yes cluster-config-file nodes.conf cluster-node-timeout 5000 appendonly ye  开启服务 将分布在不通服务器上的redis都启动起来
+.../redis5.0.8/src/redis-server ./redis.conf ps -ef | grep redis ## 可以看到开启r的redis  创建集群 ## 连接实例 /usr/redis/src/redis-cli -h 192.168.100.200 -p 7000 ## 查看节点(此时应该只有一个节点) cluster nodes ## 创建集群(3主3从) ## 前面的默认是主节点 /usr/software/redis-5.0.8/src/redis-cli --cluster create 192.168.100.200:7000 192.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/install/compile/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/install/compile/</guid>
+      <description> 编译安装Redis  Redis版本:5.0.8
+  编译安装Redis  下载软件包 解压 安装gcc(如果没有安装的话) 编译 运行   下载软件包 在Redis官方网站就可以下载，很小
+解压 tar -xvf redis-xxxx.tar  安装gcc(如果没有安装的话) yum install -y gcc  编译 ## 进入到目录 cd redis-xxx ## 编译 make  运行 src/redis-server redis.conf  </description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://jaswine.com/docs/redis/docs/install/docker/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://jaswine.com/docs/redis/docs/install/docker/</guid>
       <description> 使用Docker安装Redis # 1.拉取镜像 docker pull  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/install/sentinel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/install/sentinel/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -147,11 +178,126 @@ maxmemory 10000000 配置内存阈值(单位为byte) maxmemory-policy noeviction
     
     <item>
       <title></title>
-      <link>https://jaswine.com/docs/redis/docs/scenes/db/</link>
+      <link>https://jaswine.com/docs/redis/docs/problems/avalanche/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jaswine.com/docs/redis/docs/scenes/db/</guid>
+      <guid>https://jaswine.com/docs/redis/docs/problems/avalanche/</guid>
+      <description>缓存雪崩  缓存雪崩  什么是缓存雪崩 解决方案  [](#)  什么是缓存雪崩 相对于缓存击穿，缓存雪崩是在同一时刻大量的缓存失效，使得大量的请求直接落在数据库上
+解决方案 ##</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/problems/breakdown/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/problems/breakdown/</guid>
+      <description> 缓存击穿  缓存击穿  什么是缓存击穿 解决方案 实现 比较   什么是缓存击穿 缓存中的某个热点数据到期了，但是此时有大量请求访问这个key，就会出现大量的请求直接打到了数据库那里
+解决方案  互斥锁
+ 提前使用互斥锁
+ 永不过期
+ 资源保护
+  实现 比较    方法 优点 缺点     互斥锁     提前使用互斥锁     永不过期     资源保护      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/problems/hotkey/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/problems/hotkey/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/problems/penetration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/problems/penetration/</guid>
+      <description> 缓存穿透  缓存穿透  什么是缓存穿透 解决方案 实现   什么是缓存穿透 当在缓存查询一个不存在的key时候，就会去存储层(数据库)中查询，如何恶意去查询这个key的话，就会频繁的去查询数据库，这样就失去了缓存的意义
+解决方案  布隆过滤器  实现 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/release/2.6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/release/2.6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/release/2.8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/release/2.8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/release/3.0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/release/3.0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/release/3.2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/release/3.2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/release/4.0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/release/4.0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/release/5.0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/release/5.0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/release/6.0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/release/6.0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/scenes/cache/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/scenes/cache/</guid>
       <description> 缓存数据库热点数据 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/scenes/distributed_cache/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/scenes/distributed_cache/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -161,6 +307,26 @@ maxmemory 10000000 配置内存阈值(单位为byte) maxmemory-policy noeviction
       
       <guid>https://jaswine.com/docs/redis/docs/scenes/lock/</guid>
       <description> 使用Redis实现分布式锁 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/scenes/spec/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/scenes/spec/</guid>
+      <description> Key命名规范 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jaswine.com/docs/redis/docs/scenes/springboot/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jaswine.com/docs/redis/docs/scenes/springboot/</guid>
+      <description> SpringBoot连接Redis @Version:2.1.5.RELEASE
+@SpringBoot使用Doc:🔗SpringBoot Doc @ Jaswine
+1.导入依赖包 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-redis&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt;  2.配置(yaml) spring: redis: # 基础配置 database: 0 host: 127.0.0.1 port: 6379 password: 123456 # 连接池配置 jedis: pool: max-active: 8 max-wait: -1ms max-idle: 8 min-idle: 0  3.使用 @RunWith(SpringJUnit4ClassRunner.class) @SpringApplicationConfiguration(Application.class) public class ApplicationTests { @Autowired private StringRedisTemplate stringRedisTemplate; @Test public void test() throws Exception { // 保存字符串 stringRedisTemplate.opsForValue().set(&amp;quot;aaa&amp;quot;, &amp;quot;111&amp;quot;); Assert.assertEquals(&amp;quot;111&amp;quot;, stringRedisTemplate.opsForValue().get(&amp;quot;aaa&amp;quot;)); } }  附1:配置持久化 附2:不同数据类型的操作函数 </description>
     </item>
     
   </channel>

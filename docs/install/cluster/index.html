@@ -12,7 +12,7 @@
 <title>
   
     
-    Set
+    Cluster
   
  | Redis Doc</title>
 
@@ -50,7 +50,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   <style>
-  nav ul a[href$="\2f docs\2fredis\2f docs\2f data_type\2fset\2f "] {
+  nav ul a[href$="\2f docs\2fredis\2f docs\2finstall\2f cluster\2f "] {
       color: #004ed0;
   }
   </style>
@@ -136,7 +136,7 @@ https://github.com/alex-shpak/hugo-book
   <strong>
   
     
-    Set
+    Cluster
   
 </strong>
 </header>
@@ -144,7 +144,96 @@ https://github.com/alex-shpak/hugo-book
       
 <article class="markdown">
 
-<h1 id="redis中string数据类型机器操作">Redis中String数据类型机器操作</h1>
+<h1 id="redis集群">Redis集群</h1>
+
+<blockquote>
+<p>使用版本:<strong>Redis 5.0.8</strong></p>
+</blockquote>
+
+<!-- TOC -->
+
+<ul>
+<li><a href="#redis集群">Redis集群</a>
+
+<ul>
+<li><a href="#创建节点文件夹">创建节点文件夹</a></li>
+<li><a href="#修改配置文件">修改配置文件</a></li>
+<li><a href="#开启服务">开启服务</a></li>
+<li><a href="#创建集群">创建集群</a></li>
+<li><a href="#集群节点扩容">集群节点扩容</a></li>
+<li><a href="#集群节点删除">集群节点删除</a></li>
+</ul></li>
+</ul>
+
+<!-- /TOC -->
+
+<hr />
+
+<h2 id="创建节点文件夹">创建节点文件夹</h2>
+
+<p>在合适的地方创建节点的文件夹又来放置</p>
+
+<ul>
+<li>配置文件</li>
+<li>持久化文件</li>
+</ul>
+
+<h2 id="修改配置文件">修改配置文件</h2>
+
+<p>开启集群模式</p>
+
+<pre><code class="language-CONF">daemonize yes
+
+port 7000
+cluster-enabled yes
+cluster-config-file nodes.conf
+cluster-node-timeout 5000
+appendonly ye
+</code></pre>
+
+<h2 id="开启服务">开启服务</h2>
+
+<p>将分布在不通服务器上的redis都启动起来</p>
+
+<pre><code class="language-SHELL">.../redis5.0.8/src/redis-server ./redis.conf
+
+ps -ef | grep redis
+## 可以看到开启r的redis
+</code></pre>
+
+<h2 id="创建集群">创建集群</h2>
+
+<pre><code>## 连接实例
+/usr/redis/src/redis-cli -h 192.168.100.200 -p 7000
+
+## 查看节点(此时应该只有一个节点)
+cluster nodes
+
+## 创建集群(3主3从)
+## 前面的默认是主节点
+
+/usr/software/redis-5.0.8/src/redis-cli  --cluster create 192.168.100.200:7000 192.168.100.166:7000 192.168.100.211:7000 192.168.100.200:7001  192.168.100.166:7001  192.168.100.211:7001 --cluster-replicas 1
+
+</code></pre>
+
+<p>此时会显示主从节点的信息，OK的话世界yes
+<img src="https://cdn.jaswine.com/Web/Tech-Doc/redis/install/cluster/redis-c1.png" alt="" /></p>
+
+<p>然后就会进入到创建集群的过程中，到此时集群就创建完成</p>
+
+<blockquote>
+<p>Tips:</p>
+
+<p>最后一步如果一直卡在<code>Waiting for the cluster to join</code>的话，把每一个节点的node.conf,dump.db 删除</p>
+</blockquote>
+
+<p><img src="https://cdn.jaswine.com/Web/Tech-Doc/redis/install/cluster/redis-c2.png" alt="" /></p>
+
+<p><img src="https://cdn.jaswine.com/Web/Tech-Doc/redis/install/cluster/redis-c3.png" alt="" /></p>
+
+<h2 id="集群节点扩容">集群节点扩容</h2>
+
+<h2 id="集群节点删除">集群节点删除</h2>
 </article>
 
       
@@ -158,7 +247,15 @@ https://github.com/alex-shpak/hugo-book
   <aside class="book-toc level-3 fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#redis中string数据类型机器操作">Redis中String数据类型机器操作</a></li>
+<li><a href="#redis集群">Redis集群</a>
+<ul>
+<li><a href="#创建节点文件夹">创建节点文件夹</a></li>
+<li><a href="#修改配置文件">修改配置文件</a></li>
+<li><a href="#开启服务">开启服务</a></li>
+<li><a href="#创建集群">创建集群</a></li>
+<li><a href="#集群节点扩容">集群节点扩容</a></li>
+<li><a href="#集群节点删除">集群节点删除</a></li>
+</ul></li>
 </ul>
 </nav>
   </aside>
